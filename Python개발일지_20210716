@@ -1,0 +1,289 @@
+
+	total = total + number
+
+print(total) # 무엇이 출력될까요?
+#55
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+total = 0
+​
+for number in data:
+    total = total + number
+​
+print(total) # 무엇이 출력될까요?
+#55
+55
+a = 16
+​
+if a > 19:
+    print("야한걸봐도 됩니다")
+else:
+    print("애들은집에가")
+애들은집에가
+positus=[1,2,3,4,5,6,7,8,7,6,5,9,0,10,12,15,17]
+for z in positus:
+    print(z)
+1
+2
+3
+4
+5
+6
+7
+8
+7
+6
+5
+9
+0
+10
+12
+15
+17
+def factor(n):
+    n = int(input("Enter a number: "))    
+    x = 1    
+    if n < 0: 
+        print(" Factorial does not exist for negative numbers")    
+    elif n == 0:  
+        print("The factorial of 0 is 1")    
+    else:    
+       for i in range(1,n + 1):    
+           x = x*i
+    return x
+factor(10)
+​
+#✔ Return은 가장 마지믹에 (중간이나 앞이면 문법오류)
+Enter a number: 20
+2432902008176640000
+students = [{"name":"현호", "age": 23}, {"name":"범규", "age": 24}, {"name":"건희", "age":25}]
+print(students[1]["name"]) # 무엇이 출력될까요?
+# 건희를 출력해보세요!
+#범규
+print(students[2]["name"])
+범규
+건희
+✔
+group1 = set([1, 1, 2, 2, 3, 3])
+group2 = set([1, 3, 5, 7, 9])
+​
+print(group1) # 무엇이 출력될까요?
+# 1,2,3
+print(group2) # 무엇이 출력될까요?
+#1,3,5,7,9
+print(group1 & group2) # 교집합
+#1,3
+print(group1 | group2) # 합집합
+#1,2,3,5,7,9
+​
+​
+#✔ 틀린것 - set의 출력은 중괄호와 함게
+{1, 2, 3}
+{1, 3, 5, 7, 9}
+{1, 3}
+{1, 2, 3, 5, 7, 9}
+answer = (4 + 5) * 2 + 3
+x = 9 # ?에 알맞은 숫자를 넣어주세요
+answer = answer + x
+​
+if answer == 30:
+    print("정답입니다")
+else:
+    print("오답입니다")
+# 정답입니다를 출력해주세요
+정답입니다
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+data2 = {"첫번째값" : 4, "두번째값" : 10}
+number_list = [0, [1, 2], 3]
+print(number_list[1]) # 예측해 보아요
+​
+# [1,2]
+​
+number_list = [0, [1, 2], 3]
+# 2를 출력하고 싶어요!
+​
+number_list [1][1]
+​
+​
+[1, 2]
+2
+# 데이터 부분
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+data2 = {"첫번째값" : 4, "두번째값" : 10}
+# 함수 정의
+def sum(a, b):
+    return a + b
+​
+print(sum(1, 4)) # 무엇이 출력될까요? 5
+print(sum(0, 2)) # 무엇이 출력될까요? 2
+print(sum(data[0], data[3])) # 무엇이 출력될까요?  5
+print(sum(data[3], data[5])) # 무엇이 출력될까요? 10
+print(sum(data2["첫번째값"], data2["두번째값"])) # 무엇이 출력될까요? 14
+5
+2
+5
+10
+14
+import pandas as pd
+chick=pd.read_csv('./chicken_07.csv')
+chick8=pd.read_csv('./chicken_08.csv')
+chick9=pd.read_csv('./chicken_09.csv')
+chick.head(5)
+chick.describe()
+​
+​
+기준일	통화건수
+count	2.637900e+04	26379.000000
+mean	2.019072e+07	12.346109
+std	8.869258e+00	14.961707
+min	2.019070e+07	5.000000
+25%	2.019071e+07	5.000000
+50%	2.019072e+07	5.000000
+75%	2.019072e+07	14.000000
+max	2.019073e+07	279.000000
+chickall
+chickall=pd.concat([chick, chick8, chick9])
+chickall=chickall.reset_index(drop=True)
+chickall
+기준일	요일	성별	연령대	시도	시군구	읍면동	업종	통화건수
+0	20190701	월	남	30대	서울특별시	강남구	논현동	치킨	8
+1	20190701	월	여	30대	서울특별시	강남구	개포동	치킨	10
+2	20190701	월	여	30대	서울특별시	강남구	논현동	치킨	16
+3	20190701	월	여	30대	서울특별시	강남구	수서동	치킨	5
+4	20190701	월	여	30대	서울특별시	강남구	대치동	치킨	5
+...	...	...	...	...	...	...	...	...	...
+76490	20190930	월	남	20대	서울특별시	중랑구	면목동	치킨	8
+76491	20190930	월	여	40대	서울특별시	중랑구	신내동	치킨	5
+76492	20190930	월	여	40대	서울특별시	중랑구	면목동	치킨	19
+76493	20190930	월	남	40대	서울특별시	중랑구	신내동	치킨	5
+76494	20190930	월	남	40대	서울특별시	중랑구	중화동	치킨	5
+76495 rows × 9 columns
+
+chickall
+import matplotlib.pyplot as plt
+chickall
+기준일	요일	성별	연령대	시도	시군구	읍면동	업종	통화건수
+0	20190701	월	남	30대	서울특별시	강남구	논현동	치킨	8
+1	20190701	월	여	30대	서울특별시	강남구	개포동	치킨	10
+2	20190701	월	여	30대	서울특별시	강남구	논현동	치킨	16
+3	20190701	월	여	30대	서울특별시	강남구	수서동	치킨	5
+4	20190701	월	여	30대	서울특별시	강남구	대치동	치킨	5
+...	...	...	...	...	...	...	...	...	...
+76490	20190930	월	남	20대	서울특별시	중랑구	면목동	치킨	8
+76491	20190930	월	여	40대	서울특별시	중랑구	신내동	치킨	5
+76492	20190930	월	여	40대	서울특별시	중랑구	면목동	치킨	19
+76493	20190930	월	남	40대	서울특별시	중랑구	신내동	치킨	5
+76494	20190930	월	남	40대	서울특별시	중랑구	중화동	치킨	5
+76495 rows × 9 columns
+
+by_week = chickall.groupby('요일')['통화건수'].count()
+sorted_by_week = by_week.sort_values (ascending=True)
+sorted_by_week
+요일
+화    10319
+목    10572
+수    10651
+월    10755
+일    11018
+토    11368
+금    11812
+Name: 통화건수, dtype: int64
+plt.figure(figsize=(8,5)) # 그림의 사이즈
+plt.bar(reindex_by_weeks.index, reindex_by_weeks) # 바 그래프
+plt.title('요일에 따른 치킨 주문량 합계') # 그래프의 제목
+plt.show() # 그래프 그리기
+weeks = ['월', '화', '수', '목', '금', '토', '일'] # 우리가 정한 순서
+reindex_by_weeks = chickall.groupby('요일')['통화건수'].sum().reindex(weeks) # 인덱스 다시 정렬
+​
+plt.figure(figsize=(8,5)) # 그림의 사이즈
+plt.bar(reindex_by_weeks.index, reindex_by_weeks) # 바 그래프
+plt.title('요일에 따른 치킨 주문량 합계') # 그래프의 제목
+plt.show() # 그래프 그리기
+
+by_age = chickall.groupby('연령대')['통화건수'].sum()
+
+plt.figure(figsize=(7,4)) # 그림의 사이즈
+plt.bar(by_age.index, by_age) # 바 그래프
+plt.title('연령 따른 치킨 주문량 합계') # 그래프의 제목
+plt.show() # 그래프 그리기
+by_age = chickall.groupby('연령대')['통화건수'].sum()
+​
+plt.figure(figsize=(7,4)) # 그림의 사이즈
+plt.bar(by_age.index, by_age) # 바 그래프
+plt.title('연령 따른 치킨 주문량 합계') # 그래프의 제목
+plt.show() # 그래프 그리기
+
+plt.figure(figsize=(18,7)) # 그림의 사이즈
+plt.bar(by_region.index, by_region) # 바 그래프
+plt.title('지역 따른 치킨 주문량 합계') # 그래프의 제목
+plt.xlabel('구별') # x축에 이름을 붙여줍니다
+plt.xticks(rotation=75)
+by_region = chickall.groupby('시군구')['통화건수'].mean()
+by_region = by_region.sort_values (ascending=False)
+plt.figure(figsize=(18,7)) # 그림의 사이즈
+plt.bar(by_region.index, by_region) # 바 그래프
+plt.title('지역 따른 치킨 주문량 합계') # 그래프의 제목
+plt.xlabel('구별') # x축에 이름을 붙여줍니다
+plt.xticks(rotation=75)
+​
+plt.show() # 그래프 그리기
+
+
+by_region_pizza = pizza.groupby('발신지_구')['통화건수'].sum()
+by_region_pizza = by_region_pizza.sort_values (ascending=False)
+by_region_pizza
+​
+​
+발신지_구
+강서구     12042
+관악구     10218
+강남구      8961
+강북구      8757
+성동구      7959
+서대문구     7819
+노원구      7408
+중구       7349
+강동구      7025
+서초구      6536
+구로구      6137
+송파구      6042
+동대문구     5761
+영등포구     4914
+마포구      4841
+은평구      4496
+중랑구      4322
+성북구      3817
+용산구      3318
+금천구      2461
+종로구      2345
+양천구      1695
+동작구      1665
+광진구      1230
+도봉구       965
+Name: 통화건수, dtype: int64
+​
+
+
+plt.figure(figsize=(8,8)) # 그림의 사이즈
+labels1=by_week_pizza.index
+labels2=by_week_pizza
+plt.pie(by_week_pizza, labels=labels1)
+plt.figure(figsize=(6,6)) # 그림의 사이즈
+plt.pie(by_week_pizza, labels=labels2)
+plt.title('요일별 주문량') # 그래프의 제목
+plt.xlabel('요일') # x축에 이름을 붙여줍니다
+plt.xticks(rotation=0) # x축에 이름을 붙여줍니
+​
+​
+plt.figure(figsize=(8,8)) # 그림의 사이즈
+labels1=by_week_pizza.index
+labels2=by_week_pizza
+plt.pie(by_week_pizza, labels=labels1)
+plt.figure(figsize=(6,6)) # 그림의 사이즈
+plt.pie(by_week_pizza, labels=labels2)
+plt.title('요일별 주문량') # 그래프의 제목
+plt.xlabel('요일') # x축에 이름을 붙여줍니다
+plt.xticks(rotation=0) # x축에 이름을 붙여줍니다
+​
+(array([], dtype=float64), [])
+
+
