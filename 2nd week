@@ -1,0 +1,79 @@
+import pandas as pd
+
+comm=pd.read_csv('./commercial.csv')
+
+list(comm) , len(list(comm))
+
+
+
+#  오류코드 large=set(comm('상권업종대분류명'))  
+large=set(comm['상권업종대분류명'])
+large
+
+middle=set(comm['상권업종중분류명'])
+small=set(comm['상권업종소분류명'])
+
+seoul = comm[comm['시']=='서울특별시']
+seoul_chick = seoul[seoul['상권업종소분류명']=='후라이드/양념치킨']
+
+by_gu = seoul_chick.groupby('구')
+#by_gu.describe()
+by_gu_chick = by_gu ['상권업종소분류명']
+by_gu_chick_count = by_gu_chick.count()
+sorted_chick = by_gu_chick_count.sort_values(ascending=False)
+#sorted_chick
+by_gu_chick.head() 
+
+
+comm[['시', '구', '상세주소']] = comm['도로명주소'].str.split(' ', n=2, expand=True)
+
+conda install -c conda-forge folium
+
+import folium
+import json
+import matplotlib.pyplot as plt
+
+pop7=pd.read_csv('./population07.csv', parse_dates=['일자'], infer_datetime_format=True)
+pop4=pd.read_csv('./population04.csv', parse_dates=['일자'], infer_datetime_format=True)
+
+pop4gangnam=pop4[pop4['군구']=='강남구'].groupby('일자')['유동인구수'].sum()
+pop7gangnam=pop7[pop7['군구']=='강남구'].groupby('일자')['유동인구수'].sum()
+
+# gangnam4_7=pop4gangnam.set_index('일자').join(pop7gangnam.set_index('일자'))  -> 왜 error가 날까..
+#df.join(other.set_index('key'), on='key')
+
+pop4gangnam = pd.DataFrame(pop4gangnam).reset_index()
+pop7gangnam = pd.DataFrame(pop7gangnam).reset_index()
+
+# join이 아니라 concat로 해야할듯..
+
+gangnam4_7=pd.concat([pop4gangnam, pop7gangnam])
+#gangnam4_7 =pop4gangnam.join(pop7gangnam.set_index('일자'), how='outer',  lsuffix='4월', rsuffix='7월', on='일자')
+#gangnam4_7=gangnam4_7.sort_values(by='일자')
+gangnam4_7
+
+pop4=pd.read_csv('./population04.csv', parse_dates=['일자'], infer_datetime_format=True, ['day']=itermonthdays(['일자']))
+
+#에러 pop7.dtypes('일자')
+#working pop7.dtypes['일자']
+pop7.dtypes, pop7
+
+a1=pop4.groupby('군구')['유동인구수'].sum().sort_values(ascending=False)
+
+population_gangnam = population[population['군구']=='강남구']
+population_gangnam_daily = population_gangnam.groupby('일자')['유동인구수'].sum()
+population_gangnam_daily
+
+df = df.dropna(subset=['ShiftedPrice'])
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.figure(figsize=(12, 5))
+plt.plot(gangnam4_7['일자'], gangnam4_7['유동인구수'])
+plt.title('2020년 4 월 및 7월 강남구 일별 유동인구 계')
+plt.xlabel('날짜')
+plt.ylabel('유동인구 수(천만명)')
+plt.show()
+
+## 이 smoothing line을 어떻게 할것인가??
+
+len(gangnam4_7)
